@@ -34,12 +34,14 @@ configurations {
 
 dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    compileOnly "io.micronaut:micronaut-inject-groovy"
-
-    compileOnly 'io.micronaut.data:micronaut-data-model:3.3.0'
-    compileOnly 'io.micronaut.data:micronaut-data-jdbc:3.3.0'
-
-
+    compileOnly 'io.micronaut:micronaut-inject-groovy:3.4.1'
+//    compileOnly 'io.micronaut.data:micronaut-data-model:3.3.0' // no other errors other than no transaction in progress
+//    compileOnly 'io.micronaut.data:micronaut-data-jdbc:3.3.0' // no other errors other than no transaction in progress
+    compileOnly 'io.micronaut.data:micronaut-data-processor:3.3.0' // needed to solve Micronaut Data method is missing compilation time query information.
+    compileOnly("jakarta.persistence:jakarta.persistence-api:3.1.0") // needed to solve Unable to load class 'jakarta.persistence.criteria.Expression'.
+    compileOnly 'io.micronaut.data:micronaut-data-hibernate-jpa:3.3.0' // needed to solve No backing RepositoryOperations configured for repository. Check your configuration and try again
+    compileOnly 'io.micronaut.configuration:micronaut-hibernate-jpa:2.2.6' // needed to solve PhysicalNamingStrategyConfiguration
+    implementation 'io.micronaut.configuration:micronaut-jdbc-tomcat:2.2.6' // needed to solve No backing RepositoryOperations configured for repository. Check your configuration and try again
 
     console "org.grails:grails-console"
     implementation "org.springframework.boot:spring-boot-starter-logging"
@@ -69,7 +71,7 @@ dependencies {
     runtimeOnly "org.apache.tomcat:tomcat-jdbc"
     runtimeOnly "javax.xml.bind:jaxb-api:2.3.1"
     runtimeOnly "com.bertramlabs.plugins:asset-pipeline-grails:3.3.4"
-    testImplementation "io.micronaut:micronaut-inject-groovy"
+    testImplementation 'io.micronaut:micronaut-inject-groovy:3.4.1'
     testImplementation "org.grails:grails-gorm-testing-support"
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.grails:grails-web-testing-support"

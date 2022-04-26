@@ -1,14 +1,20 @@
 package mn.data
 
 import grails.gorm.transactions.Transactional
-import org.springframework.beans.factory.annotation.Autowired
+
+import javax.inject.Inject
 
 @Transactional
 class CompanyService {
 
-    @Autowired
+    @Inject
     CompanyRepository companyRepository
 
+    CompanyService(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository
+    }
+
+    @javax.transaction.Transactional
     Company save(Company company) {
         companyRepository.save(company)
     }

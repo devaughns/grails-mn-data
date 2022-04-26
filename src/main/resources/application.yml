@@ -1,0 +1,6 @@
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - 'mn.data'
+        - 'io.micronaut.data.*'

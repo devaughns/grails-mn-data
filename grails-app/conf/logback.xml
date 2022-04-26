@@ -11,6 +11,8 @@
         </encoder>
     </appender>
 
+
+    <logger name="io.micronaut.context.condition" level="trace"/>
     <root level="error">
         <appender-ref ref="STDOUT" />
     </root>
