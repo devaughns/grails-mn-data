@@ -4,9 +4,7 @@ class CompanyController {
 
     CompanyService companyService
 
-    static scaffold = Company
-
-    Company customSave(Company company) {
+    Company save(Company company) {
         companyService.save(company)
     }
 

@@ -147,7 +147,7 @@ jpa:
         entity-scan:
             packages:
                 - 'mn.data'
-                - 'io.micronaut.data.*'
+                - 'io.micronaut.data'
         properties:
             hibernate:
                 bytecode:

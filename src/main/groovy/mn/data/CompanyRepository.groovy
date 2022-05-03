@@ -1,8 +1,8 @@
 package mn.data
 
 import io.micronaut.data.annotation.Repository
-import io.micronaut.data.repository.CrudRepository
+import io.micronaut.data.jpa.repository.JpaRepository
 
 @Repository
-interface CompanyRepository extends CrudRepository<Company, Long> {
+interface CompanyRepository extends JpaRepository<Company, Long> {
 }
