@@ -145,9 +145,8 @@ environments:
 jpa:
     default:
         entity-scan:
-            packages:
-                - 'mn.data'
-                - 'io.micronaut.data'
+            classpath: true
+            packages: 'mn.data'
         properties:
             hibernate:
                 bytecode:
@@ -155,17 +154,4 @@ jpa:
                 hbm2ddl:
                     auto: update
                 show_sql: true
-        packages-to-scan:
-            - 'mn.data'
-            - 'io.micronaut.data'
-
-datasources:
-    default:
-        url: ${JDBC_URL:`jdbc:h2:mem:default;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
-        username: ${JDBC_USER:sa}
-        password: ${JDBC_PASSWORD:""}
-        driverClassName: ${JDBC_DRIVER:org.h2.Driver}
-
-micronaut:
-    application:
-        name: mn-data
+        packages-to-scan: 'mn.data'
